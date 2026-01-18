@@ -1,0 +1,14 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Aspire.Api/Aspire.Api.csproj" />
+    <Project Path="src/Aspire.AppHost/Aspire.AppHost.csproj" />
+    <Project Path="src/Aspire.Application/Aspire.Application.csproj" />
+    <Project Path="src/Aspire.Domain/Aspire.Domain.csproj" />
+    <Project Path="src/Aspire.Infrastructure/Aspire.Infrastructure.csproj" />
+    <Project Path="src/ServiceDefaults/ServiceDefaults.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Aspire.IntegrationTests/Aspire.IntegrationTests.csproj" />
+    <Project Path="tests/Aspire.UnitTests/Aspire.UnitTests.csproj" />
+  </Folder>
+</Solution>

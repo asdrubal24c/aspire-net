@@ -1,0 +1,36 @@
+version: '3.8'
+
+# ⚠️ ADVERTENCIA: Este archivo NO FUNCIONA
+# El AppHost NO puede ser dockerizado porque Aspire.AppHost.Sdk no genera
+# ejecutables publicables tradicionales. El AppHost DEBE ejecutarse localmente.
+#
+# Este archivo se mantiene solo como referencia, pero NO debe usarse.
+# Ver DOCKER.md para la configuración correcta de desarrollo.
+
+# services:
+#   aspire-apphost:
+#     build:
+#       context: .
+#       dockerfile: src/Aspire.AppHost/Dockerfile
+#     container_name: aspire-apphost
+#     ports:
+#       - "15000:15000"
+#       - "15001:15001"
+#       - "4317:4317"
+#       - "4318:4318"
+#     environment:
+#       - ASPNETCORE_ENVIRONMENT=Development
+#       - DOTNET_ENVIRONMENT=Development
+#       - ASPNETCORE_URLS=https://+:15000;http://+:15001
+#       - ASPIRE_ALLOW_UNSECURED_TRANSPORT=true
+#       - OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4317
+#       - OTEL_EXPORTER_OTLP_HTTP_ENDPOINT=http://localhost:4318
+#       - ASPIRE_DASHBOARD_OTLP_ENDPOINT_URL=http://localhost:4317
+#       - ASPIRE_DASHBOARD_OTLP_HTTP_ENDPOINT_URL=http://localhost:4318
+#     networks:
+#       - aspire-network
+#     restart: unless-stopped
+#
+# networks:
+#   aspire-network:
+#     driver: bridge

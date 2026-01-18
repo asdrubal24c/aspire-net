@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  aspire-api:
+    build:
+      context: .
+      dockerfile: src/Aspire.Api/Dockerfile
+    container_name: aspire-api
+    ports:
+      - "8080:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - DOTNET_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:8080
+      # Configuración OTLP para enviar telemetría al dashboard (ajustar según tu configuración)
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://host.docker.internal:4317
+      - OTEL_EXPORTER_OTLP_HTTP_ENDPOINT=http://host.docker.internal:4318
+    networks:
+      - aspire-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+networks:
+  aspire-network:
+    driver: bridge
